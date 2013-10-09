@@ -1,20 +1,16 @@
 package com.ordnancesurvey.osmappingdemo;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
 
-import uk.co.ordnancesurvey.android.maps.FailedToLoadException;
 import uk.co.ordnancesurvey.android.maps.Geocoder;
 import uk.co.ordnancesurvey.android.maps.GridPoint;
 import uk.co.ordnancesurvey.android.maps.OSMap;
 import uk.co.ordnancesurvey.android.maps.OSTileSource;
 import uk.co.ordnancesurvey.android.maps.SupportMapFragment;
-import android.os.Environment;
+
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -36,18 +32,16 @@ public class MainActivity extends FragmentActivity implements  OSMap.OnMapClickL
 
         ArrayList<OSTileSource> sources = new ArrayList<OSTileSource>();
 
-        // Fall back to a web tile source.
+        // Web tile source.
         sources.add(mMap.webTileSource("DEMOAPI", "file:///", true, null));
         mMap.setTileSources(sources);
         mMap.setOnMapClickListener(this);
-  //      mMap.setInfoWindowAdapter(this);
         mMap.setMyLocationEnabled(true);
 
    try {
-            File db =  new File(Environment.getExternalStorageDirectory(), "gaz50k.ospoi");
-            mGeocoder = new Geocoder(db, "DEMOAPI", "file:///", true);
-        } catch (FailedToLoadException e) {
-            Toast.makeText(this, "Could not find gaz50k.ospoi on sdcard", Toast.LENGTH_SHORT).show();
+            mGeocoder = new Geocoder(null, "DEMOAPI", "file:///", true);
+        }catch (Exception e) {
+                 e.printStackTrace();
         }
 
       }
@@ -57,7 +51,6 @@ public class MainActivity extends FragmentActivity implements  OSMap.OnMapClickL
     protected void onDestroy() {
         mGeocoder.close();
         mGeocoder = null;
-
         super.onDestroy();
     }
 
