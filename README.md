@@ -60,9 +60,9 @@ TODO: how to do this in android
 ```java
 //uk.co.ordnancesurvey.android.demos.osmappingdemo.MainActivity.java
 
-    private final static String OS_API_KEY = "API_KEY";
+private final static String OS_API_KEY = "API_KEY";
 
-    private final static boolean OS_IS_PRO = false;
+private final static boolean OS_IS_PRO = false;
 
 ```
 
