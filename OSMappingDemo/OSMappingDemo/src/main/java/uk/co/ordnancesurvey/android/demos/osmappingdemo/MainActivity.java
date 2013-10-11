@@ -1,27 +1,27 @@
 package uk.co.ordnancesurvey.android.demos.osmappingdemo;
 
+import android.app.Activity;
 import android.os.Bundle;
 
-
-import uk.co.ordnancesurvey.android.maps.Geocoder;
 import uk.co.ordnancesurvey.android.maps.GridPoint;
 import uk.co.ordnancesurvey.android.maps.OSMap;
 import uk.co.ordnancesurvey.android.maps.OSTileSource;
-import uk.co.ordnancesurvey.android.maps.SupportMapFragment;
+import uk.co.ordnancesurvey.android.maps.MapFragment;
 
-import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
+
+import java.lang.Override;
 import java.util.ArrayList;
 
 
-public class MainActivity extends FragmentActivity implements OSMap.OnMapClickListener{
+public class MainActivity extends Activity implements OSMap.OnMapClickListener{
 
     /**
      *  Define your OS Openspace API KEY details below
      *  @see http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/index.html
      *
      */
-    private final static String OS_API_KEY = "DEMOAPI";
+    private final static String OS_API_KEY = "API_KEY";
 
     private final static boolean OS_IS_PRO = true;
 
@@ -39,8 +39,7 @@ public class MainActivity extends FragmentActivity implements OSMap.OnMapClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-        SupportMapFragment mf = (SupportMapFragment)fm.findFragmentById(R.id.map_fragment);
+        MapFragment mf = ((MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment));
 
         mMap = mf.getMap();
 
@@ -54,6 +53,7 @@ public class MainActivity extends FragmentActivity implements OSMap.OnMapClickLi
         // register as OnMapClickListener
         mMap.setOnMapClickListener(this);
 
+
       }
 
 
@@ -63,6 +63,7 @@ public class MainActivity extends FragmentActivity implements OSMap.OnMapClickLi
         super.onDestroy();
 
     }
+
 
     @Override
     public boolean onMapClick(GridPoint gp)

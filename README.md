@@ -15,6 +15,7 @@ Getting started
 This project requires the following points are met:
 
 - Android SdkVersion: 18
+- Minimum API Level: 16
 - Gradle version: 1.8
 - Minimum Openspace Android SDK version: **vX.x.x**
 - IDE supporting Gradle
@@ -42,7 +43,7 @@ TODO: how do we do this
 Update `OSMappingDemo/local.properties` with sdk.dir path if necessary.
 
 ```bash
-echo 'sdk.dir=/path/to/android-sdk' >> OSMappingDemo/local.properties
+echo 'sdk.dir=/path/to/android-sdk' > OSMappingDemo/local.properties
 ```
 
 #### Import into IDE
