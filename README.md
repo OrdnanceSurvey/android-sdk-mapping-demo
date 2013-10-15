@@ -17,8 +17,8 @@ This project requires the following points are met:
 - Android SdkVersion: 18
 - Minimum API Level: 16
 - Gradle version: 1.8
-- Minimum Openspace Android SDK version: **vX.x.x**
-- IDE supporting Gradle
+- Minimum Openspace Android SDK version: **vTODO**
+- IDE supporting Gradle projects
 
 
 #### Registration and Access
@@ -35,7 +35,11 @@ git clone https://github.com/OrdnanceSurvey/android-sdk-mapping-demo.git
 
 #### Download openspace-android-sdk
 
-TODO: how do we do this
+1. Download the latest [openspace-android-sdk package](http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/android-sdk.html)
+2. Unzip the `osmapandroid-*.jar` downloaded into the libs directory in this project
+<pre>
+ $PROJECT_ROOT/OSMappingDemo/libs
+</pre>
 
 
 #### Update local.properties
@@ -48,20 +52,18 @@ echo 'sdk.dir=/path/to/android-sdk' > OSMappingDemo/local.properties
 
 #### Import into IDE
 
-Import as Gradle project into IDE.
+Import application as Gradle project into IDE.
 
 
-#### Update demo app with your API Key and App Id details
+#### Check API Key and App Id details
 
-Update API Key in the demo app.
-
-TODO: how to do this in android
-
+The API Key in the demo app in the `MainActivity.java` class is specific for this project, if you want to use another API key then you will need to change the package name to that which was registered.
 
 ```java
-//uk.co.ordnancesurvey.android.demos.osmappingdemo.MainActivity.java
 
-private final static String OS_API_KEY = "API_KEY";
+// MainActivity.java
+
+private final static String OS_API_KEY = "API_KEY_HERE";
 
 private final static boolean OS_IS_PRO = false;
 
@@ -70,6 +72,7 @@ private final static boolean OS_IS_PRO = false;
 #### Build and run
 
 Project can now be built and run on a device or emulator.
+
 
 Questions and Issues
 -------
