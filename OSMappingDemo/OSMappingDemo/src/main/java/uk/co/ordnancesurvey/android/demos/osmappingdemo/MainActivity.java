@@ -1,17 +1,17 @@
 package uk.co.ordnancesurvey.android.demos.osmappingdemo;
 
+
+import java.lang.Override;
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import uk.co.ordnancesurvey.android.maps.GridPoint;
 import uk.co.ordnancesurvey.android.maps.OSMap;
 import uk.co.ordnancesurvey.android.maps.OSTileSource;
 import uk.co.ordnancesurvey.android.maps.MapFragment;
-
-import android.widget.Toast;
-
-import java.lang.Override;
-import java.util.ArrayList;
 
 
 public class MainActivity extends Activity implements OSMap.OnMapClickListener{
