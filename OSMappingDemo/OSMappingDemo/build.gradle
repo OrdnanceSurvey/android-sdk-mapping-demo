@@ -10,12 +10,6 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
-
-    //TODO: link to public repo for sdk
-    mavenRepo url: 'http://ND27826:8080/archiva', artifactUrls: [
-            'http://ND27826:8080/archiva/repository/internal',
-            'http://ND27826:8080/archiva/repository/snapshot'
-    ]
 }
 
 android {
@@ -30,7 +24,11 @@ android {
 
 dependencies {
 
-    // Specify OpenSpace Android SDK version
-    compile 'uk.co.ordnancesurvey:osmapandroid:1'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    // The Support Repository (separate from the corresponding library) can be found in the Extras category.
+    compile 'com.android.support:support-v4:18.0.+'
+
+    // Include SDK jar in /OSMappingDemo/libs dir
+    compile fileTree(dir: '../libs', include: '*.jar')
 
 }
