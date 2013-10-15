@@ -12,6 +12,7 @@ import uk.co.ordnancesurvey.android.maps.GridPoint;
 import uk.co.ordnancesurvey.android.maps.OSMap;
 import uk.co.ordnancesurvey.android.maps.OSTileSource;
 import uk.co.ordnancesurvey.android.maps.MapFragment;
+import uk.co.ordnancesurvey.android.maps.MarkerOptions;
 
 
 public class MainActivity extends Activity implements OSMap.OnMapClickListener{
@@ -21,9 +22,9 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
      *  @see http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/index.html
      *
      */
-    private final static String OS_API_KEY = "API_KEY";
+    private final static String OS_API_KEY = "API_KEY_HERE";
 
-    private final static boolean OS_IS_PRO = true;
+    private final static boolean OS_IS_PRO = false;
 
     private final static String OS_API_URL = "file:///";
 
@@ -53,7 +54,6 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
         // register as OnMapClickListener
         mMap.setOnMapClickListener(this);
 
-
       }
 
 
@@ -69,9 +69,13 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
     public boolean onMapClick(GridPoint gp)
     {
 
-        final String locationMessage = String.format("Map tapped at OSGridPoint\n{%.0f, %.0f}", gp.x, gp.y);
+        final String locationMessage = String.format("Map tapped at OS GridPoint\n{%.0f, %.0f}", gp.x, gp.y);
 
-        Toast.makeText(this, locationMessage, Toast.LENGTH_SHORT).show();
+        mMap.addMarker(new MarkerOptions()
+                .gridPoint(gp)
+                .title("Map clicked here!")
+                .snippet(locationMessage));
+
         return true;
 
     }
