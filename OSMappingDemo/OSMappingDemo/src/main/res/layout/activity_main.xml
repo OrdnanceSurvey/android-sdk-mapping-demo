@@ -10,7 +10,7 @@
 
         <!-- create OpenSpace Android SDK map fragment -->
         <fragment
-            class="uk.co.ordnancesurvey.android.maps.MapFragment"
+            android:name="uk.co.ordnancesurvey.android.maps.MapFragment"
             android:id="@+id/map_fragment"
             android:label="@string/app_name"
             android:layout_width="fill_parent"
