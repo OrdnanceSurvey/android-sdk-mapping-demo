@@ -17,7 +17,6 @@ This project requires the following points are met:
 - Android SdkVersion: 18
 - Minimum API Level: 16
 - Gradle version: 1.8
-- Minimum Openspace Android SDK version: **vTODO**
 - IDE supporting Gradle projects
 
 
@@ -35,20 +34,12 @@ git clone https://github.com/OrdnanceSurvey/android-sdk-mapping-demo.git
 
 #### Download openspace-android-sdk
 
-1. Download the latest [openspace-android-sdk package](http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/android-sdk.html)
+1. Download the latest [openspace-android-sdk package](https://www.ordnancesurvey.co.uk/business-and-government/products/os-openspace/android-sdk.html)
 2. Unzip the `osmapandroid-*.jar` downloaded into the libs directory in this project
 <pre>
  $PROJECT_ROOT/OSMappingDemo/libs
 </pre>
 
-
-#### Update local.properties
-
-Update `OSMappingDemo/local.properties` with sdk.dir path if necessary.
-
-```bash
-echo 'sdk.dir=/path/to/android-sdk' > OSMappingDemo/local.properties
-```
 
 #### Import into IDE
 
