@@ -6,30 +6,31 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.util.Log;
 
 import uk.co.ordnancesurvey.android.maps.GridPoint;
 import uk.co.ordnancesurvey.android.maps.OSMap;
 import uk.co.ordnancesurvey.android.maps.OSTileSource;
 import uk.co.ordnancesurvey.android.maps.MapFragment;
 import uk.co.ordnancesurvey.android.maps.MarkerOptions;
+import uk.co.ordnancesurvey.android.maps.BitmapDescriptorFactory;
+import uk.co.ordnancesurvey.android.maps.BitmapDescriptor;
 
 
 public class MainActivity extends Activity implements OSMap.OnMapClickListener{
 
     /**
-     *  Define your OS Openspace API KEY details below
-     *  @see http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/index.html
+     * This API Key is registered for this application.
      *
+     * Define your own OS Openspace API KEY details below
+     * @see http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/index.html
      */
-    private final static String OS_API_KEY = "API_KEY_HERE";
+    private final static String OS_API_KEY = "E85FA01439937930E0430B6CA40A8C37";
 
     private final static boolean OS_IS_PRO = false;
 
-    private final static String OS_API_URL = "file:///";
 
-
-    private final static String TAG = "MainActivity";
+    private final static String TAG = MainActivity.class.getSimpleName();
 
     private OSMap mMap;
 
@@ -48,11 +49,13 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
         ArrayList<OSTileSource> sources = new ArrayList<OSTileSource>();
 
         //create web tile source with API details
-        sources.add(mMap.webTileSource(OS_API_KEY, OS_API_URL, OS_IS_PRO, null));
+        sources.add(mMap.webTileSource(OS_API_KEY, OS_IS_PRO, null));
         mMap.setTileSources(sources);
 
         // register as OnMapClickListener
         mMap.setOnMapClickListener(this);
+
+        Log.v(TAG, "onCreate complete.");
 
       }
 
@@ -71,10 +74,15 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
 
         final String locationMessage = String.format("Map tapped at OS GridPoint\n{%.0f, %.0f}", gp.x, gp.y);
 
+        Log.v(TAG, locationMessage);
+
+        BitmapDescriptor icon = BitmapDescriptorFactory.defaultMarker();
+
         mMap.addMarker(new MarkerOptions()
                 .gridPoint(gp)
                 .title("Map clicked here!")
-                .snippet(locationMessage));
+                .snippet(locationMessage)
+                .icon(icon));
 
         return true;
 
