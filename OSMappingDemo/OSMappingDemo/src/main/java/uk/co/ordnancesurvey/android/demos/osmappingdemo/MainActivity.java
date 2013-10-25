@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements OSMap.OnMapClickListener{
      * Define your own OS Openspace API KEY details below
      * @see http://www.ordnancesurvey.co.uk/oswebsite/web-services/os-openspace/index.html
      */
-    private final static String OS_API_KEY = "E85FA01439937930E0430B6CA40A8C37";
+    private final static String OS_API_KEY = "E98D7DFC9D1A5AE5E0430C6CA40A3CE5";
 
     private final static boolean OS_IS_PRO = false;
 
